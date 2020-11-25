@@ -51,7 +51,10 @@ namespace BlackNRed.TreeClasses
             tmp = search(value);
             if (tmp.val != value) return false;
             else
+            {
+                tmp.isFinded = true;
                 return true;
+            }
         }
         public void Erase(int n)
         {
@@ -123,6 +126,24 @@ namespace BlackNRed.TreeClasses
             }
 
             return temp;
+        }
+
+        public void DeleteSearchMarks(Node t)
+		{
+            if (t != null)
+            {
+                t.isFinded = false;
+
+                if (t.left != null)
+                {
+                    DeleteSearchMarks(t.left);
+                }
+
+                if (t.right != null)
+                {
+                    DeleteSearchMarks(t.right);
+                }
+            }
         }
 
         void leftRotate(Node x)

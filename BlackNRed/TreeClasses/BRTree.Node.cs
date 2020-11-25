@@ -14,6 +14,7 @@ namespace BlackNRed.TreeClasses
             public int val;
             public COLOR color;
             public Node left, right, parent;
+            public bool isFinded { get; set; }
             
             public int X { get; set; }
             public int Y { get; set; }

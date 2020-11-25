@@ -84,6 +84,8 @@
 			this.textBox.Text = "введите значение";
 			this.textBox.Visible = false;
 			this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+			this.textBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+			this.textBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseDown);
 			// 
 			// Form1
 			// 

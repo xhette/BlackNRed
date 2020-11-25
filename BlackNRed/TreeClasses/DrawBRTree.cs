@@ -22,7 +22,7 @@ namespace BlackNRed.TreeClasses
 		Brush redFill;
 		Brush blackFill;
 		Brush whiteFill;
-		Font font;
+		Font font, fontNull;
 
 		int R;
 
@@ -48,6 +48,7 @@ namespace BlackNRed.TreeClasses
 
 			R = r;
 			font = new Font("Times New Roman", R);
+			fontNull = new Font("Times New Roman", R/2);
 		}
 
 		void DrawVertex(Node node, int x, int y)
@@ -58,23 +59,45 @@ namespace BlackNRed.TreeClasses
 			{
 				if (node.color == COLOR.BLACK)
 				{
-					graphic.FillEllipse(blackFill, x - R, y - R, 2 * R, 2 * R);
+					if (!node.isFinded)
+					{
+						graphic.FillEllipse(blackFill, x - R, y - R, 2 * R, 2 * R);
+					}
+					else
+					{
+						graphic.FillEllipse(whiteFill, x - R, y - R, 2 * R, 2 * R);
+					}
 					graphic.DrawEllipse(black, x - R, y - R, 2 * R, 2 * R);
 				}
 				else if (node.color == COLOR.RED)
 				{
-					graphic.FillEllipse(redFill, x - R, y - R, 2 * R, 2 * R);
+
+					if (!node.isFinded)
+					{
+						graphic.FillEllipse(redFill, x - R, y - R, 2 * R, 2 * R);
+					}
+					else
+					{
+						graphic.FillEllipse(whiteFill, x - R, y - R, 2 * R, 2 * R);
+					}
 					graphic.DrawEllipse(red, x - R, y - R, 2 * R, 2 * R);
 				}
-
-				graphic.DrawString(node.val.ToString(), font, whiteFill, point);
+				if (!node.isFinded)
+				{
+					graphic.DrawString(node.val.ToString(), font, whiteFill, point);
+				}
+				else
+				{
+					graphic.DrawString(node.val.ToString(), font, blackFill, point);
+				}
 			}
 			else
 			{
 				graphic.FillEllipse(blackFill, x - R, y - R, 2 * R, 2 * R);
 				graphic.DrawEllipse(black, x - R, y - R, 2 * R, 2 * R);
 
-				graphic.DrawString("NULL", font, whiteFill, point);
+				var pointNull = new PointF(x - R, y - R / 2);
+				graphic.DrawString("NULL", fontNull, whiteFill, pointNull);
 			}
 		}
 
@@ -84,6 +107,11 @@ namespace BlackNRed.TreeClasses
 			PointF p2 = new PointF(x2, y2);
 
 			graphic.DrawLine(gray, p1, p2);
+		}
+
+		public void Clear()
+		{
+			graphic.Clear(Color.WhiteSmoke);
 		}
 
 		public void Draw(Node node, int x, int y, bool isroot = false)
@@ -101,30 +129,30 @@ namespace BlackNRed.TreeClasses
 				{
 					xUp = 3 * R;
 				}
-				if (node.left != null)
-				{
+				//if (node.left != null)
+				//{
 					DrawEdge(x, y, x - xUp, y + yUp);
 
 					DrawVertex(node, x, y);
 
 					Draw(node.left, x - xUp, y + yUp);
-				}
-				else
-				{
-					DrawVertex(node, x, y);
-				}
+				//}
+				//else
+				//{
+				//	DrawVertex(node, x, y);
+				//}
 
-				if (node.right != null)
-				{
+				//if (node.right != null)
+				//{
 					DrawEdge(x, y, x + xUp, y + yUp);
 					DrawVertex(node, x, y);
 
 					Draw(node.right, x + xUp, y + yUp);
-				}
-				else
-				{
-					DrawVertex(node, x, y);
-				}
+				//}
+				//else
+				//{
+				//	DrawVertex(node, x, y);
+				//}
 			}
 			else
 			{
