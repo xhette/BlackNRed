@@ -123,11 +123,11 @@ namespace BlackNRed.TreeClasses
 
 				if (isroot)
 				{
-					xUp = 6 * R;
+					xUp = 8 * R;
 				}
 				else
 				{
-					xUp = 3 * R;
+					xUp = 5 * R;
 				}
 				//if (node.left != null)
 				//{
