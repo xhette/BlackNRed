@@ -114,45 +114,31 @@ namespace BlackNRed.TreeClasses
 			graphic.Clear(Color.WhiteSmoke);
 		}
 
-		public void Draw(Node node, int x, int y, bool isroot = false)
+		public void Draw(Node node, int x, int y, bool isroot = false, int xStart = 0)
 		{
 			if (node != null)
 			{
 				int xUp = R;
 				int yUp = 3 * R;
 
-				if (isroot)
+				if (xStart == 0)
 				{
-					xUp = 8 * R;
+					xUp = 15 * R;
 				}
 				else
 				{
-					xUp = 5 * R;
+					xUp = xStart;
 				}
-				//if (node.left != null)
-				//{
-					DrawEdge(x, y, x - xUp, y + yUp);
 
-					DrawVertex(node, x, y);
+				DrawEdge(x, y, x - xUp, y + yUp);
 
-					Draw(node.left, x - xUp, y + yUp);
-				//}
-				//else
-				//{
-				//	DrawVertex(node, x, y);
-				//}
+				DrawVertex(node, x, y);
 
-				//if (node.right != null)
-				//{
-					DrawEdge(x, y, x + xUp, y + yUp);
-					DrawVertex(node, x, y);
+				Draw(node.left, x - xUp, y + yUp, false, xUp / 2);
+				DrawEdge(x, y, x + xUp, y + yUp);
+				DrawVertex(node, x, y);
 
-					Draw(node.right, x + xUp, y + yUp);
-				//}
-				//else
-				//{
-				//	DrawVertex(node, x, y);
-				//}
+				Draw(node.right, x + xUp, y + yUp, false, xUp / 2);
 			}
 			else
 			{

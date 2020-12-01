@@ -41,13 +41,13 @@
 			this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox.Location = new System.Drawing.Point(12, 12);
 			this.pictureBox.Name = "pictureBox";
-			this.pictureBox.Size = new System.Drawing.Size(635, 426);
+			this.pictureBox.Size = new System.Drawing.Size(1024, 350);
 			this.pictureBox.TabIndex = 0;
 			this.pictureBox.TabStop = false;
 			// 
 			// button_Insert
 			// 
-			this.button_Insert.Location = new System.Drawing.Point(664, 132);
+			this.button_Insert.Location = new System.Drawing.Point(1087, 95);
 			this.button_Insert.Name = "button_Insert";
 			this.button_Insert.Size = new System.Drawing.Size(120, 40);
 			this.button_Insert.TabIndex = 1;
@@ -57,7 +57,7 @@
 			// 
 			// button_Delete
 			// 
-			this.button_Delete.Location = new System.Drawing.Point(664, 199);
+			this.button_Delete.Location = new System.Drawing.Point(1087, 162);
 			this.button_Delete.Name = "button_Delete";
 			this.button_Delete.Size = new System.Drawing.Size(120, 40);
 			this.button_Delete.TabIndex = 2;
@@ -67,7 +67,7 @@
 			// 
 			// button_Find
 			// 
-			this.button_Find.Location = new System.Drawing.Point(664, 270);
+			this.button_Find.Location = new System.Drawing.Point(1087, 233);
 			this.button_Find.Name = "button_Find";
 			this.button_Find.Size = new System.Drawing.Size(120, 40);
 			this.button_Find.TabIndex = 3;
@@ -91,7 +91,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1250, 442);
 			this.Controls.Add(this.textBox);
 			this.Controls.Add(this.button_Find);
 			this.Controls.Add(this.button_Delete);
